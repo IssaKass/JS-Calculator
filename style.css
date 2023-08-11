@@ -54,7 +54,7 @@ body.neumorphism {
     inset -2px -2px 3px var(--clr-dark-shadow),
     -2px -2px 3px 0 var(--clr-light-shadow),
     inset 2px 2px 3px var(--clr-light-shadow);
-  --shadow-cave: -2px -2px 3px var(--clr-dark-shadow),
+  --shadow-cave: -2px -2px 3px 0 var(--clr-dark-shadow),
     inset 2px 2px 3px var(--clr-dark-shadow),
     2px 2px 3px 0 var(--clr-light-shadow),
     inset -2px -2px 3px var(--clr-light-shadow);

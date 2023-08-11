@@ -54,7 +54,7 @@ body.neumorphism {
     inset -2px -2px 3px var(--clr-dark-shadow),
     -2px -2px 3px 0 var(--clr-light-shadow),
     inset 2px 2px 3px var(--clr-light-shadow);
-  --shadow-cave: -2px -2px 3px ` var(--clr-dark-shadow),
+  --shadow-cave: -2px -2px 3px var(--clr-dark-shadow),
     inset 2px 2px 3px var(--clr-dark-shadow),
     2px 2px 3px 0 var(--clr-light-shadow),
     inset -2px -2px 3px var(--clr-light-shadow);
@@ -112,17 +112,6 @@ body.neumorphism .calculator {
   border-radius: var(--rad);
   font-size: 28px;
   padding: 0 20px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.calculator__display::-webkit-scrollbar {
-  height: 8px;
-  background-color: var(--scrollbar);
-}
-
-.calculator__display::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-track);
 }
 
 body.neumorphism .calculator__display {

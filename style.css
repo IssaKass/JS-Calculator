@@ -1,0 +1,165 @@
+:root {
+  --spacing: 10px;
+  --padding: 15px;
+  --rad: 5px;
+  --button-size: 60px;
+  --screen-height: 80px;
+  --calculator-width: calc(
+    2 * var(--padding) + 3 * var(--spacing) + 4 * var(--button-size)
+  );
+  --transition: 150ms ease;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+  transition: var(--transition);
+}
+
+body {
+  height: 100vh;
+  background: var(--body-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.glassmorphism {
+  --body-bg: linear-gradient(to top, cornflowerblue, darkslateblue);
+  --calculator-bg: rgba(255, 255, 255, 0.2);
+  --display-bg: rgba(255, 255, 255, 0.25);
+  --display-color: white;
+  --keys-bg: rgba(255, 255, 255, 0.1);
+  --keys-color: white;
+  --keys-hover-bg: rgba(255, 255, 255, 0.25);
+}
+
+body.neumorphism {
+  --body-bg: #ecf0f3;
+  --calculator-bg: var(--body-bg);
+  --display-bg: var(--body-bg);
+  --display-color: #181818;
+  --keys-bg: var(--body-bg);
+  --keys-color: #181818;
+  --keys-hover-bg: var(--body-bg);
+
+  --clr-light-shadow: rgb(255 255 255 / 60%);
+  --clr-dark-shadow: rgb(0 0 0 / 10%);
+  --shadow-curve: 2px 2px 3px 0 var(--clr-dark-shadow),
+    inset -2px -2px 3px var(--clr-dark-shadow),
+    -2px -2px 3px 0 var(--clr-light-shadow),
+    inset 2px 2px 3px var(--clr-light-shadow);
+  --shadow-cave: -2px -2px 3px ` var(--clr-dark-shadow),
+    inset 2px 2px 3px var(--clr-dark-shadow),
+    2px 2px 3px 0 var(--clr-light-shadow),
+    inset -2px -2px 3px var(--clr-light-shadow);
+}
+
+.theme-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: var(--keys-bg);
+  cursor: pointer;
+}
+
+.theme-btn svg {
+  fill: var(--keys-color);
+}
+
+.theme-btn:hover {
+  background-color: var(--keys-hover-bg);
+}
+
+body.neumorphism .theme-btn {
+  box-shadow: var(--shadow-curve);
+}
+
+body.neumorphism .theme-btn:active {
+  box-shadow: var(--shadow-cave);
+}
+
+.calculator {
+  padding: var(--padding);
+  background-color: var(--calculator-bg);
+  backdrop-filter: blur(15px);
+  border-radius: var(--rad);
+  max-width: var(--calculator-width);
+}
+
+body.neumorphism .calculator {
+  box-shadow: var(--shadow-curve);
+}
+
+.calculator__display {
+  width: 100%;
+  height: var(--screen-height);
+  line-height: var(--screen-height);
+  background-color: var(--display-bg);
+  color: var(--display-color);
+  border-radius: var(--rad);
+  font-size: 28px;
+  padding: 0 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.calculator__display::-webkit-scrollbar {
+  height: 8px;
+  background-color: var(--scrollbar);
+}
+
+.calculator__display::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-track);
+}
+
+body.neumorphism .calculator__display {
+  box-shadow: var(--shadow-cave);
+}
+
+.calculator__keys {
+  margin-top: var(--spacing);
+  display: grid;
+  gap: var(--spacing);
+  grid-template-columns: repeat(4, var(--button-size));
+  grid-template-rows: repeat(5, var(--button-size));
+}
+
+.key {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--keys-color);
+  border-radius: var(--rad);
+  background-color: var(--keys-bg);
+  font-size: 18px;
+}
+
+body.neumorphism .key {
+  box-shadow: var(--shadow-curve);
+}
+
+body.neumorphism .key:active {
+  box-shadow: var(--shadow-cave);
+}
+
+.key--equal {
+  grid-column: span 3;
+}
+
+.key:hover {
+  background-color: var(--keys-hover-bg);
+}
